@@ -53,11 +53,12 @@ Test Cases:
     - Натиснути кнопку “Subscribe”.
     - Перевірити, чи користувач знаходиться на іншому домені (https://resources.github.com/newsletter/).
     - Перевірити, чи існує заголовний текст “Subscribe to our developer newsletter”.
-    - Ввести email (example@mail.com) у поле “Work Email *”.
+    - Ввести email (new_example@mail.com) у поле “Work Email *”.
     - Вибрати країну у полі “Country *”.
     - Відмітити чекбокс.
     - Натиснути кнопку “Subscribe”.
     - Перевірити, чи існує заголовний текст “Thanks for subscribing!”.
+    
 4. Test Case ID: TC004
 Title: Verify Search Functionality
 Description: Перевірити функціональність пошуку.

@@ -43,7 +43,7 @@ describe('GitHub Functional Tests', () => {
         await browser.keys('Enter');
         await browser.pause(2000);
 
-        await browser.saveScreenshot('./screenshots/signup_page.png');
+        await browser.saveScreenshot('./screenshots/tc001_signup_page.png');
     });
     xit(' | TC002 | Verify Enterprise Trial ', async () => {
         // - Перейти на головну сторінку GitHub.
@@ -76,36 +76,54 @@ describe('GitHub Functional Tests', () => {
         await $('a[href="/enterprise/trial/start?ref_cta=Enterprise+Cloud&ref_loc=choose_an_enterprise_plan&ref_page=%2Forganizations%2Fenterprise_plan%3Fref_cta%3DStart%2Ba%2Bfree%2Benterprise%2Btrial%26ref_loc%3DHome%2Bcampaign%2Bfooter%26ref_page%3D%252F"]').click();
         await browser.pause(2000);
         
-        await browser.saveScreenshot('./screenshots/trial_page.png');
+        await browser.saveScreenshot('./screenshots/tc002_trial_page.png');
     });
     it(' | TC003 | Verify Newsletter Subscription ', async () => {
         const subscribeBtn = $('a[href="https://resources.github.com/newsletter/"]')
         // - Перейти на головну сторінку GitHub.
         await browser.url('https://github.com/');
-
         // - Прокрутити вниз до “Subscribe”.
         await (subscribeBtn).scrollIntoView();
         // - Перевірити, чи кнопка “Subscribe” є клікабельною.
-        await browser.pause(2000);
+        console.log('Is subscribe clickable: ' + await subscribeBtn.isClickable());
+        expect(subscribeBtn).toBeClickable();
         // - Натиснути кнопку “Subscribe”.
-        
-        
+        await subscribeBtn.click();
         // - Перевірити, чи користувач знаходиться на іншому домені (https://resources.github.com/newsletter/).
-        
+        await browser.switchWindow('https://resources.github.com/newsletter/');
         // - Перевірити, чи існує заголовний текст “Subscribe to our developer newsletter”.
-        
+        const newsletterTitleHeader = $('#hero-section-brand-heading');
+        expect(newsletterTitleHeader).toHaveValue("Subscribe to our developer newsletter");
+        console.log('Title header / searched text is : ' + await newsletterTitleHeader.getText());
+        if (await newsletterTitleHeader.isDisplayed()) {
+            console.log('Title header is visible');
+        }
+        else {
+            console.log('Title header is not visible');
+        };
         // - Ввести email (example@mail.com) у поле “Work Email *”.
-        
+        const newsletterEmailInput = $('input[type="email"]');
+        await newsletterEmailInput.setValue('new_example@mail.com');
         // - Вибрати країну у полі “Country *”.
-        
+        const newsletterCountrySelect = $('select[id="country"]');
+        // await newsletterCountrySelect.selectByVisibleText('Ukraine');
+        await newsletterCountrySelect.selectByAttribute('value', 'UA');
         // - Відмітити чекбокс.
-        
+        const newsletterCheckbox = $('input[type="checkbox"]');
+        await newsletterCheckbox.click();
         // - Натиснути кнопку “Subscribe”.
-        
+        await $('#form > form > div > button > span.Primer_Brand__Button-module__Button__text___Z3ocU > span').click();
         // - Перевірити, чи існує заголовний текст “Thanks for subscribing!”.
-
-
-        // await browser.saveScreenshot('./screenshots/subscription_page.png');
+        const thankYouHeader  = $('#hero-section-brand-heading#hero-section-brand-heading');
+        expect(thankYouHeader ).toHaveValue("Thanks for subscribing!");
+        console.log('Title header / searched text is : ' + await thankYouHeader .getText());
+        if (await thankYouHeader .isDisplayed()) {
+            console.log('ThankYou header is visible');
+        }
+        else {
+            console.log('ThankYou header is not visible');
+        };
+        await browser.saveScreenshot('./screenshots/tc003_confirmation_page.png');
     });
 });
 
