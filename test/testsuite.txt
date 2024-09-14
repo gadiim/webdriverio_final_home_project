@@ -70,12 +70,12 @@ Test Cases:
     - Перевірити, чи є “act” у результатах пошуку.
 
 5. Test Case ID: TC005
-Title: Verify Pricing Page
-Description: Перевірити доступність та функціональність сторінки з цінами.
-Expected Result: Користувач успішно переходить на сторінку з цінами та бачить всі необхідні елементи.
-Test Steps:
-Перейти на головну сторінку GitHub.
-Перейти за посиланням “Pricing”.
-Перевірити, чи існує заголовний текст “Get the complete developer platform.”
-Прокрутити до “Compare all features”.
-Перевірити, чи існує заголовний текст “Compare features”.
+    Title:              Verify Pricing Page
+    Description:        Перевірити доступність та функціональність сторінки з цінами.
+    Expected Result:    Користувач успішно переходить на сторінку з цінами та бачить всі необхідні елементи.
+    Test Steps:
+    - Перейти на головну сторінку GitHub.
+    - Перейти за посиланням “Pricing”.
+    - Перевірити, чи існує заголовний текст “Get the complete developer platform.”
+    - Прокрутити до “Compare all features”.
+    - Перевірити, чи існує заголовний текст “Compare features”.

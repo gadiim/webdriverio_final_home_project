@@ -148,5 +148,14 @@ describe('GitHub Functional Tests', () => {
 
         await browser.saveScreenshot('./screenshots/tc004_search_page.png');
     });
+    it(' | TC005 | Verify Pricing Page ', async () => {
+        // - Перейти на головну сторінку GitHub.
+        await browser.url('https://github.com/');
+        // - Перейти за посиланням “Pricing”.
+        await $('a[href="/pricing"]').click();
+        // - Перевірити, чи існує заголовний текст “Get the complete developer platform.”
+        // - Прокрутити до “Compare all features”.
+        // - Перевірити, чи існує заголовний текст “Compare features”.
+    });
 });
 
