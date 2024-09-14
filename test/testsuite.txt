@@ -58,15 +58,17 @@ Test Cases:
     - Відмітити чекбокс.
     - Натиснути кнопку “Subscribe”.
     - Перевірити, чи існує заголовний текст “Thanks for subscribing!”.
-    
+
 4. Test Case ID: TC004
-Title: Verify Search Functionality
-Description: Перевірити функціональність пошуку.
-Expected Result: Пошук повертає результати для введеного запиту.
-Test Steps:
-Перейти на головну сторінку GitHub.
-Ввести “act” у поле пошуку.
-Перевірити, чи є “act” у результатах пошуку.
+    Title:              Verify Search Functionality
+    Description:        Перевірити функціональність пошуку.
+    Expected Result:    Пошук повертає результати для введеного запиту.
+    Test Steps:
+    - Перейти на головну сторінку GitHub.
+    - Обрати 'Search'.
+    - Ввести “act” у поле пошуку.
+    - Перевірити, чи є “act” у результатах пошуку.
+
 5. Test Case ID: TC005
 Title: Verify Pricing Page
 Description: Перевірити доступність та функціональність сторінки з цінами.

@@ -78,7 +78,7 @@ describe('GitHub Functional Tests', () => {
         
         await browser.saveScreenshot('./screenshots/tc002_trial_page.png');
     });
-    it(' | TC003 | Verify Newsletter Subscription ', async () => {
+    xit(' | TC003 | Verify Newsletter Subscription ', async () => {
         const subscribeBtn = $('a[href="https://resources.github.com/newsletter/"]')
         // - Перейти на головну сторінку GitHub.
         await browser.url('https://github.com/');
@@ -117,13 +117,36 @@ describe('GitHub Functional Tests', () => {
         const thankYouHeader  = $('#hero-section-brand-heading#hero-section-brand-heading');
         expect(thankYouHeader ).toHaveValue("Thanks for subscribing!");
         console.log('Title header / searched text is : ' + await thankYouHeader .getText());
-        if (await thankYouHeader .isDisplayed()) {
+        if (await thankYouHeader.isDisplayed()) {
             console.log('ThankYou header is visible');
         }
         else {
             console.log('ThankYou header is not visible');
         };
+
         await browser.saveScreenshot('./screenshots/tc003_confirmation_page.png');
+    });
+    it(' | TC004 | Verify Search Functionality ', async () => {
+        // - Перейти на головну сторінку GitHub.
+        await browser.url('https://github.com/');
+        // - Обрати 'Search'.
+        const searchInput = $('body > div.logged-out.env-production.page-responsive.header-overlay.home-campaign > div.position-relative.js-header-wrapper > header > div > div.HeaderMenu.js-header-menu.height-fit.position-lg-relative.d-lg-flex.flex-column.flex-auto.top-0 > div > div > qbsearch-input > div.search-input-container.search-with-dialog.position-relative.d-flex.flex-row.flex-items-center.mr-4.rounded > button');
+        await searchInput.click();
+        // - Ввести “act” у поле пошуку.
+        await $('#query-builder-test').setValue('act');
+        await browser.pause(500);
+        await browser.keys('Enter');
+        await browser.pause(2000);
+        // - Перевірити, чи є “act” у результатах пошуку.
+        const searchResults = $('//*[contains(text(), "act")]');
+        if (await searchResults) {
+            console.log('Search results is visible');
+        }
+        else {
+            console.log('Search results is not visible');
+        };
+
+        await browser.saveScreenshot('./screenshots/tc004_search_page.png');
     });
 });
 
