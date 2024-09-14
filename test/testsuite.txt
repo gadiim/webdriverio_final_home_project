@@ -1,0 +1,78 @@
+Test Suite:         GitHub Functional Tests
+Test Suite ID:      TS002
+
+Title:              GitHub Functional Test Suite
+
+Description:        Цей тест-с’ют призначений для перевірки функціональності 
+                    різних сторінок та елементів на GitHub. Він включає кілька 
+                    тест-кейсів для перевірки різних аспектів роботи сайту.
+
+Preconditions:      Користувач знаходиться на головній сторінці GitHub 
+                    (https://github.com/).
+
+Test Cases:
+
+1. Test Case ID:        TC001
+    Title:              Verify Sign Up Process
+    Description:        Перевірити процес реєстрації нового користувача.
+    Expected Result:    Користувач успішно проходить всі етапи реєстрації.
+    Test Steps:
+    - Перейти на головну сторінку GitHub.
+    - Натиснути кнопку “Sign up”.
+    - Дочекатись першого поля вводу.
+    - Перевірити, чи існує заголовний текст на полі вводу.
+    - Ввести email (new_example@mail.com).
+    - Натиснути кнопку “Continue”.
+    - Ввести пароль (superPas5word).
+    - Натиснути кнопку “Continue”.
+    - Ввести ім’я користувача (superusername-droid).
+    - Натиснути кнопку “Continue”.
+    - Ввести підтвердження (y).
+    - Натиснути кнопку “Continue”.
+
+2. Test Case ID: TC002
+Title:              Verify Enterprise Trial
+Description:        Перевірити доступність та функціональність кнопки “Start a free enterprise trial”.
+Expected Result:    Користувач успішно переходить на сторінку вибору плану.
+Test Steps:
+ - Перейти на головну сторінку GitHub.
+ - Прокрутити вниз до “Over 100 million developers call GitHub home”.
+ - Перевірити, чи видима кнопка “Start a free enterprise trial”.
+ - Перейти за посиланням.
+ - Перевірити, чи існує заголовний текст “Pick your trial plan”.
+ - Перейти за посиланням “Enterprise Cloud”.
+
+3. Test Case ID: TC003
+Title: Verify Newsletter Subscription
+Description: Перевірити процес підписки на розсилку новин.
+Expected Result: Користувач успішно підписується на розсилку новин.
+Test Steps:
+Перейти на головну сторінку GitHub.
+Прокрутити вниз до “Subscribe”.
+Перевірити, чи кнопка “Subscribe” є клікабельною.
+Натиснути кнопку “Subscribe”.
+Перевірити, чи користувач знаходиться на іншому домені (https://resources.github.com/newsletter/).
+Перевірити, чи існує заголовний текст “Subscribe to our developer newsletter”.
+Ввести email (example@mail.com) у поле “Work Email *”.
+Вибрати країну у полі “Country *”.
+Відмітити чекбокс.
+Натиснути кнопку “Subscribe”.
+Перевірити, чи існує заголовний текст “Thanks for subscribing!”.
+4. Test Case ID: TC004
+Title: Verify Search Functionality
+Description: Перевірити функціональність пошуку.
+Expected Result: Пошук повертає результати для введеного запиту.
+Test Steps:
+Перейти на головну сторінку GitHub.
+Ввести “act” у поле пошуку.
+Перевірити, чи є “act” у результатах пошуку.
+5. Test Case ID: TC005
+Title: Verify Pricing Page
+Description: Перевірити доступність та функціональність сторінки з цінами.
+Expected Result: Користувач успішно переходить на сторінку з цінами та бачить всі необхідні елементи.
+Test Steps:
+Перейти на головну сторінку GitHub.
+Перейти за посиланням “Pricing”.
+Перевірити, чи існує заголовний текст “Get the complete developer platform.”
+Прокрутити до “Compare all features”.
+Перевірити, чи існує заголовний текст “Compare features”.
