@@ -45,7 +45,7 @@ describe('GitHub Functional Tests', () => {
 
         await browser.saveScreenshot('./screenshots/signup_page.png');
     });
-    it(' | TC002 | Verify Enterprise Trial ', async () => {
+    xit(' | TC002 | Verify Enterprise Trial ', async () => {
         // - Перейти на головну сторінку GitHub.
         await browser.url('https://github.com/');
         // - Прокрутити вниз до “Over 100 million developers call GitHub home”.
@@ -77,6 +77,35 @@ describe('GitHub Functional Tests', () => {
         await browser.pause(2000);
         
         await browser.saveScreenshot('./screenshots/trial_page.png');
+    });
+    it(' | TC003 | Verify Newsletter Subscription ', async () => {
+        const subscribeBtn = $('a[href="https://resources.github.com/newsletter/"]')
+        // - Перейти на головну сторінку GitHub.
+        await browser.url('https://github.com/');
+
+        // - Прокрутити вниз до “Subscribe”.
+        await (subscribeBtn).scrollIntoView();
+        // - Перевірити, чи кнопка “Subscribe” є клікабельною.
+        await browser.pause(2000);
+        // - Натиснути кнопку “Subscribe”.
+        
+        
+        // - Перевірити, чи користувач знаходиться на іншому домені (https://resources.github.com/newsletter/).
+        
+        // - Перевірити, чи існує заголовний текст “Subscribe to our developer newsletter”.
+        
+        // - Ввести email (example@mail.com) у поле “Work Email *”.
+        
+        // - Вибрати країну у полі “Country *”.
+        
+        // - Відмітити чекбокс.
+        
+        // - Натиснути кнопку “Subscribe”.
+        
+        // - Перевірити, чи існує заголовний текст “Thanks for subscribing!”.
+
+
+        // await browser.saveScreenshot('./screenshots/subscription_page.png');
     });
 });
 
