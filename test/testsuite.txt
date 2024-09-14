@@ -31,16 +31,16 @@ Test Cases:
     - Натиснути кнопку “Continue”.
 
 2. Test Case ID: TC002
-Title:              Verify Enterprise Trial
-Description:        Перевірити доступність та функціональність кнопки “Start a free enterprise trial”.
-Expected Result:    Користувач успішно переходить на сторінку вибору плану.
-Test Steps:
- - Перейти на головну сторінку GitHub.
- - Прокрутити вниз до “Over 100 million developers call GitHub home”.
- - Перевірити, чи видима кнопка “Start a free enterprise trial”.
- - Перейти за посиланням.
- - Перевірити, чи існує заголовний текст “Pick your trial plan”.
- - Перейти за посиланням “Enterprise Cloud”.
+    Title:              Verify Enterprise Trial
+    Description:        Перевірити доступність та функціональність кнопки “Start a free enterprise trial”.
+    Expected Result:    Користувач успішно переходить на сторінку вибору плану.
+    Test Steps:
+    - Перейти на головну сторінку GitHub.
+    - Прокрутити вниз до “Over 100 million developers call GitHub home”.
+    - Перевірити, чи видима кнопка “Start a free enterprise trial”.
+    - Перейти за посиланням “Start a free enterprise trial”.
+    - Перевірити, чи існує заголовний текст “Pick your trial plan”.
+    - Перейти за посиланням “Enterprise Cloud”.
 
 3. Test Case ID: TC003
 Title: Verify Newsletter Subscription
