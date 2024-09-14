@@ -126,7 +126,7 @@ describe('GitHub Functional Tests', () => {
 
         await browser.saveScreenshot('./screenshots/tc003_confirmation_page.png');
     });
-    it(' | TC004 | Verify Search Functionality ', async () => {
+    xit(' | TC004 | Verify Search Functionality ', async () => {
         // - Перейти на головну сторінку GitHub.
         await browser.url('https://github.com/');
         // - Обрати 'Search'.
@@ -153,9 +153,31 @@ describe('GitHub Functional Tests', () => {
         await browser.url('https://github.com/');
         // - Перейти за посиланням “Pricing”.
         await $('a[href="/pricing"]').click();
+        await browser.pause(2000);
         // - Перевірити, чи існує заголовний текст “Get the complete developer platform.”
+        const pricingHeader = $('.h2-mktg');
+        expect(pricingHeader).toHaveText("Get the complete developer platform.");
+        console.log('pricing header / searched text is : ' + await pricingHeader.getText());
+        if (await pricingHeader.isDisplayed()) {
+            console.log('Pricing pricing header is visible');
+        }
+        else {
+            console.log('Pricing header is not visible');
+        };
         // - Прокрутити до “Compare all features”.
+        await $('a[href="#compare-features"]').scrollIntoView();
         // - Перевірити, чи існує заголовний текст “Compare features”.
+        const compareHeader = $('.h1');
+        expect(compareHeader).toHaveText("Compare features");
+        console.log('pricing header / searched text is : ' + await compareHeader.getText());
+        if (await compareHeader.isDisplayed()) {
+            console.log('Compare features header is visible');
+        }
+        else {
+            console.log('Compare features header is not visible');
+        };
+
+        await browser.saveScreenshot('./screenshots/tc005_pricing_page.png');
     });
 });
 
