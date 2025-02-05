@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","0"," | TC003 | Verify Newsletter Subscription ","","Tue Feb 04 22:43:07 EET 2025","skipped","Tue Feb 04 22:43:07 EET 2025","","GitHub Functional Tests","",""
+"","0"," | TC004 | Verify Search Functionality ","","Tue Feb 04 22:43:07 EET 2025","skipped","Tue Feb 04 22:43:07 EET 2025","","GitHub Functional Tests","",""
+"","2"," | TC001 | Verify Sign Up Process ","","Tue Feb 04 22:43:07 EET 2025","skipped","Tue Feb 04 22:43:07 EET 2025","","GitHub Functional Tests","",""
+"","0"," | TC002 | Verify Enterprise Trial ","","Tue Feb 04 22:43:07 EET 2025","skipped","Tue Feb 04 22:43:07 EET 2025","","GitHub Functional Tests","",""
+"","6099"," | TC005 | Verify Pricing Page ","","Tue Feb 04 22:43:07 EET 2025","passed","Tue Feb 04 22:43:13 EET 2025","","GitHub Functional Tests","",""

@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install WebdriverIO
+      run: npm install @wdio/cli
+
+    - name: Run tests
+      run: npm run test
+
+    - name: Generate Allure report
+      if: always()
+      run: npm run allure:generate
+    - name: Upload Results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-results
+        path: ./allure-results 
+    - name: Publishing Allure artifact to Github Actions
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: ./allure-report
+    - name: Deploy report
+      uses: JamesIves/github-pages-deploy-action@4.1.3
+      if: always()
+      with:
+        branch: report
+        folder: allure-report 
