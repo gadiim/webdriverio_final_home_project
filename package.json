@@ -19,5 +19,8 @@
     "@wdio/mocha-framework": "^9.0.8",
     "@wdio/spec-reporter": "^9.0.8",
     "@wdio/visual-service": "^6.0.0"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.32.2"
   }
 }

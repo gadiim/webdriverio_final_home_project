@@ -1,58 +1,37 @@
-name: CI
+name: Run tests and publish report
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches:
+      - main # or any branch you want to trigger the deployment from
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'  # Specify your Node.js version here
 
-    - name: Install dependencies
-      run: npm install
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install WebdriverIO
-      run: npm install @wdio/cli
+      # Run WebdriverIO tests
+      - name: Run WebdriverIO tests
+        run: npm run test # Replace with your actual test command if different
 
-    - name: Install Allure
-      run: |
-        npm install -g allure-commandline --save-dev
-
-    - name: Run tests
-      run: npm run test
-
-    - name: Generate Allure report
-      if: always()
-      run: allure generate allure-results --clean -o allure-report
-
-    - name: Upload Results
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: allure-results
-        path: ./allure-results 
-
-    - name: Publishing Allure artifact to Github Actions
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: allure-report
-        path: ./allure-report
-
-    - name: Deploy report
-      uses: JamesIves/github-pages-deploy-action@4.1.3
-      if: always()
-      with:
-        branch: report
-        folder: allure-report
+      # Upload test results or reports to GitHub Pages
+      - name: Upload test results and report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./path/to/your/reports # Replace with the directory where your reports are located
+          publish_branch: gh-pages # The branch to deploy to GitHub Pages
